@@ -1,18 +1,21 @@
 package centurion.content;
 
+import centurion.world.blocks.SixteenDirectionBlock;
 import centurion.world.blocks.distribution.computer;
 import centurion.world.blocks.distribution.SafetyArm;
 import centurion.world.blocks.alchemy.energy.CovalentBeamNode;
 import centurion.world.blocks.alchemy.energy.CovalentCell;
 import centurion.world.blocks.alchemy.TransmutationChamber;
 import centurion.world.blocks.alchemy.TransmutationForge;
+import mindustry.content.Items;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
+import mindustry.world.meta.BuildVisibility;
 
 public class CBlocks {
 
-    public static Block runeAltar, safetyArm, computerArm, covalentNode, covalentBeamNode, covalentCell, transmutationChamber, transmutationForge;
+    public static Block runeAltar, safetyArm, computerArm, covalentNode, covalentBeamNode, covalentCell, transmutationChamber, transmutationForge,test16Dir;
 
     public static void load() {
 
@@ -93,6 +96,17 @@ public class CBlocks {
             health = 400;
             craftTime = 30f;
             powerCapacity = 1500f;
+        }};
+        //You can delete it, it's just a test of the block base class, just wanted to give you a heads-up.
+        test16Dir = new SixteenDirectionBlock("test-16dir"){{
+            requirements(Category.distribution, ItemStack.with(Items.copper, 1));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            size = 1;
+            destructible = true;
+            health = 200;
+            instantBuild = true;
+            quickRotate = false;
         }};
     }
 }
